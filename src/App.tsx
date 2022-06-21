@@ -1,9 +1,11 @@
-import { useState } from "react";
+import Header from "./components/Header";
 
 function App() {
   return (
     <div>
-      <h1>Ola</h1>
+      <Header />
+
+      <h1>Post</h1>
     </div>
   );
 }
