@@ -8,7 +8,7 @@ function App() {
     <div>
       <Header />
 
-      <div className="wrapper">
+      <div className={styles.wrapper}>
         <aside>sidebar</aside>
 
         <main>

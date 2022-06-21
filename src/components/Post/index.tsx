@@ -6,7 +6,12 @@ type TPostProps = {
 };
 
 const Post = ({ author, content }: TPostProps) => {
-  return <div />;
+  return (
+    <div>
+        <strong>{author}</strong>
+        <p>{content}</p>
+    </div>
+  )
 };
 
 export default Post;
