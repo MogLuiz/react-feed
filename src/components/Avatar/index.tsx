@@ -1,3 +1,5 @@
+import { imageBorderModifier } from "./utils";
+
 import styles from "./styles.module.css";
 
 type TAvatarProps = {
@@ -5,11 +7,8 @@ type TAvatarProps = {
   hasBorder: boolean;
 };
 
-const Avatar = ({ imageSrc, hasBorder = true }: TAvatarProps) => {
-  const imageBorderModifier = () =>
-    hasBorder ? styles.avatarWithBorder : styles.avatar;
-
-  return <img className={imageBorderModifier()} src={imageSrc} />;
-};
+const Avatar = ({ imageSrc, hasBorder = true }: TAvatarProps) => (
+  <img className={imageBorderModifier(styles, hasBorder)} src={imageSrc} />
+);
 
 export default Avatar;
