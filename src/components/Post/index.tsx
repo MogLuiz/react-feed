@@ -1,4 +1,5 @@
 import React from "react";
+import Avatar from "../Avatar";
 
 import Comment from "../Comment";
 
@@ -14,10 +15,7 @@ const Post = ({ author, content }: TPostProps) => {
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <img
-            className={styles.avatar}
-            src="https://avatars.githubusercontent.com/u/58401291?v=4"
-          />
+          <Avatar imageSrc="https://avatars.githubusercontent.com/u/58401291?v=4" />
           <div className={styles.authorInfo}>
             <strong>Luiz Ramos</strong>
             <span>Frontend Engineer</span>
