@@ -45,7 +45,9 @@ const Post = ({ author, content }: TPostProps) => {
 
         <textarea placeholder="Escreva um comentário..." />
 
-        <button type="submit">Comentar</button>
+        <footer>
+          <button type="submit">Comentar</button>
+        </footer>
       </form>
     </article>
   );
