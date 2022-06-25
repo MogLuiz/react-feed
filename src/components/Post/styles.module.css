@@ -83,6 +83,7 @@
   background: var(--gray-900);
   border: 0;
   resize: none;
+  border-radius: 8px;
   height: 6rem;
   padding: 1rem;
   color: var(--gray-100);
