@@ -1,0 +1,39 @@
+import { ThumbsUp, Trash } from "phosphor-react";
+import React from "react";
+
+import styles from "./styles.module.css";
+
+const Comment = () => {
+  return (
+    <div className={styles.comment}>
+      <img src="https://avatars.githubusercontent.com/u/58401291?v=4" />
+
+      <div className={styles.commentBox}>
+        <div className={styles.commentContent}>
+          <header>
+            <div className={styles.authorAndTime}>
+              <strong>Luiz Ramos</strong>
+
+              <time dateTime="2022-05-22">Cerca de 1h atrás</time>
+            </div>
+
+            <button title="excluir comentário">
+              <Trash size={20} />
+            </button>
+          </header>
+
+          <p>Muito bom Devon, parabéns!! 👏👏</p>
+        </div>
+
+        <footer>
+          <button>
+            <ThumbsUp />
+            Aplaudir <span>20</span>
+          </button>
+        </footer>
+      </div>
+    </div>
+  );
+};
+
+export default Comment;
