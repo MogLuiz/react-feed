@@ -7,7 +7,10 @@ import styles from "./styles.module.css";
 const Comment = () => {
   return (
     <div className={styles.comment}>
-      <Avatar imageSrc="https://avatars.githubusercontent.com/u/58401291?v=4" />
+      <Avatar
+        hasBorder={false}
+        imageSrc="https://avatars.githubusercontent.com/u/58401291?v=4"
+      />
 
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
