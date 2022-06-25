@@ -18,7 +18,7 @@ const Comment = () => {
             </div>
 
             <button title="excluir comentário">
-              <Trash size={20} />
+              <Trash size={24} />
             </button>
           </header>
 
