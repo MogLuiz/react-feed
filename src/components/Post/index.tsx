@@ -1,5 +1,7 @@
 import React from "react";
 
+import Comment from "../Comment";
+
 import styles from "./styles.module.css";
 
 type TPostProps = {
@@ -49,6 +51,12 @@ const Post = ({ author, content }: TPostProps) => {
           <button type="submit">Comentar</button>
         </footer>
       </form>
+
+      <div className={styles.commentList}>
+        <Comment />
+        <Comment />
+        <Comment />
+      </div>
     </article>
   );
 };
