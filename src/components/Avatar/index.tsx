@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 
 type TAvatarProps = {
   imageSrc: string;
-  hasBorder: boolean;
+  hasBorder?: boolean;
 };
 
 const Avatar = ({ imageSrc, hasBorder = true }: TAvatarProps) => (

@@ -2,6 +2,8 @@ import Header from "./components/Header";
 import Post from "./components/Post";
 import Sidebar from "./components/Sidebar";
 
+import { posts } from "./utils";
+
 import styles from "./App.module.css";
 
 function App() {
@@ -13,14 +15,15 @@ function App() {
         <Sidebar />
 
         <main>
-          <Post
-            author="Luiz Henrique"
-            content="Um conteúdo de post muito mas muito bastante legal"
-          />
-          <Post
-            author="Matheus Rodrigues"
-            content="Um conteúdo mais legal ainda. Confia."
-          />
+          {posts.map(({ author, content, id, publishedAt }) => (
+            <Post
+              key={id}
+              author={author}
+              content={content}
+              id={id}
+              publishedAt={publishedAt}
+            />
+          ))}
         </main>
       </div>
     </div>

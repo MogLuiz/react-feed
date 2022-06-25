@@ -1,24 +1,26 @@
-import React from "react";
 import Avatar from "../Avatar";
-
 import Comment from "../Comment";
+
+import { TAuthor, TContentPost } from "./types";
 
 import styles from "./styles.module.css";
 
 type TPostProps = {
-  author: string;
-  content: string;
+  id: number;
+  author: TAuthor;
+  publishedAt: Date;
+  content: Array<TContentPost>;
 };
 
-const Post = ({ author, content }: TPostProps) => {
+const Post = ({ author, content, publishedAt }: TPostProps) => {
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <Avatar imageSrc="https://avatars.githubusercontent.com/u/58401291?v=4" />
+          <Avatar imageSrc={author.avatarUrl} />
           <div className={styles.authorInfo}>
-            <strong>Luiz Ramos</strong>
-            <span>Frontend Engineer</span>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
           </div>
         </div>
 
@@ -59,4 +61,5 @@ const Post = ({ author, content }: TPostProps) => {
   );
 };
 
+export type PostType = TPostProps;
 export default Post;
