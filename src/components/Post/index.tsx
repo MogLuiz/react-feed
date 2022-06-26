@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 import Avatar from "../Avatar";
 import Comment from "../Comment";
@@ -23,6 +23,7 @@ const Post = ({
   publishedAt,
 }: TPostProps) => {
   const [comments, setComments] = useState(["Esse post ficou demais!"]);
+  const [newCommentText, setNewCommentText] = useState("");
 
   const publishedDateFormatted = format(
     publishedAt,
@@ -37,14 +38,15 @@ const Post = ({
     addSuffix: true,
   });
 
-  const handleCreateNewComment = (event: any) => {
+  const handleCreateNewComment = (event: FormEvent) => {
     event.preventDefault();
 
-    const newCommentText = event.target.comment.value;
-
     setComments([...comments, newCommentText]);
+    setNewCommentText("");
+  };
 
-    event.target.comment.value = ''
+  const handleNewCommentChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    setNewCommentText(event.target.value);
   };
   return (
     <article className={styles.post}>
@@ -80,7 +82,12 @@ const Post = ({
       <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>
 
-        <textarea name="comment" placeholder="Escreva um comentário..." />
+        <textarea
+          value={newCommentText}
+          onChange={handleNewCommentChange}
+          name="comment"
+          placeholder="Escreva um comentário..."
+        />
 
         <footer>
           <button type="submit">Comentar</button>
