@@ -1,3 +1,5 @@
+import { FormEvent, useState } from "react";
+
 import Avatar from "../Avatar";
 import Comment from "../Comment";
 
@@ -20,6 +22,8 @@ const Post = ({
   content,
   publishedAt,
 }: TPostProps) => {
+  const [comments, setComments] = useState(["Esse post ficou demais!"]);
+
   const publishedDateFormatted = format(
     publishedAt,
     "d 'de' LLLL 'às' HH:mm'h'",
@@ -32,6 +36,16 @@ const Post = ({
     locale: ptBR,
     addSuffix: true,
   });
+
+  const handleCreateNewComment = (event: any) => {
+    event.preventDefault();
+
+    const newCommentText = event.target.comment.value;
+
+    setComments([...comments, newCommentText]);
+
+    event.target.comment.value = ''
+  };
   return (
     <article className={styles.post}>
       <header>
@@ -63,10 +77,10 @@ const Post = ({
         })}
       </div>
 
-      <form className={styles.commentForm}>
+      <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>
 
-        <textarea placeholder="Escreva um comentário..." />
+        <textarea name="comment" placeholder="Escreva um comentário..." />
 
         <footer>
           <button type="submit">Comentar</button>
@@ -74,9 +88,9 @@ const Post = ({
       </form>
 
       <div className={styles.commentList}>
-        <Comment />
-        <Comment />
-        <Comment />
+        {comments.map((comment) => (
+          <Comment content={comment} />
+        ))}
       </div>
     </article>
   );

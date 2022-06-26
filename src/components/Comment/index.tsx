@@ -4,7 +4,11 @@ import Avatar from "../Avatar";
 
 import styles from "./styles.module.css";
 
-const Comment = () => {
+type TCommentProps = {
+  content: string
+}
+
+const Comment = ({ content }:TCommentProps) => {
   return (
     <div className={styles.comment}>
       <Avatar
@@ -26,7 +30,7 @@ const Comment = () => {
             </button>
           </header>
 
-          <p>Muito bom Devon, parabéns!! 👏👏</p>
+          <p>{content}</p>
         </div>
 
         <footer>
