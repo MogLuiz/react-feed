@@ -17,6 +17,13 @@ const Post = ({
   content,
   publishedAt,
 }: TPostProps) => {
+  const publishedDateFormatted = new Intl.DateTimeFormat("pt-BR", {
+    day: "2-digit",
+    month: "long",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(publishedAt);
+
   return (
     <article className={styles.post}>
       <header>
@@ -28,7 +35,7 @@ const Post = ({
           </div>
         </div>
 
-        <time dateTime="2022-05-22">Publicado há 1h</time>
+        <time dateTime="2022-05-22">{publishedDateFormatted}</time>
       </header>
 
       <div className={styles.content}>
