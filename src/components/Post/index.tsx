@@ -12,15 +12,19 @@ type TPostProps = {
   content: Array<TContentPost>;
 };
 
-const Post = ({ author, content, publishedAt }: TPostProps) => {
+const Post = ({
+  author: { avatarUrl, name, role },
+  content,
+  publishedAt,
+}: TPostProps) => {
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <Avatar imageSrc={author.avatarUrl} />
+          <Avatar imageSrc={avatarUrl} />
           <div className={styles.authorInfo}>
-            <strong>{author.name}</strong>
-            <span>{author.role}</span>
+            <strong>{name}</strong>
+            <span>{role}</span>
           </div>
         </div>
 
