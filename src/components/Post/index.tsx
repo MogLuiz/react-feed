@@ -1,9 +1,12 @@
 import Avatar from "../Avatar";
 import Comment from "../Comment";
 
+import { format, formatDistanceToNow } from "date-fns";
+
 import { TAuthor, TContentPost } from "./types";
 
 import styles from "./styles.module.css";
+import { ptBR } from "date-fns/locale";
 
 type TPostProps = {
   id: number;
@@ -17,13 +20,18 @@ const Post = ({
   content,
   publishedAt,
 }: TPostProps) => {
-  const publishedDateFormatted = new Intl.DateTimeFormat("pt-BR", {
-    day: "2-digit",
-    month: "long",
-    hour: "2-digit",
-    minute: "2-digit",
-  }).format(publishedAt);
+  const publishedDateFormatted = format(
+    publishedAt,
+    "d 'de' LLLL 'às' HH:mm'h'",
+    {
+      locale: ptBR,
+    }
+  );
 
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+    locale: ptBR,
+    addSuffix: true,
+  });
   return (
     <article className={styles.post}>
       <header>
@@ -35,7 +43,12 @@ const Post = ({
           </div>
         </div>
 
-        <time dateTime="2022-05-22">{publishedDateFormatted}</time>
+        <time
+          title={publishedDateFormatted}
+          dateTime={publishedAt.toISOString()}
+        >
+          {publishedDateRelativeToNow}
+        </time>
       </header>
 
       <div className={styles.content}>
