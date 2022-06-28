@@ -1,14 +1,15 @@
+import { ImgHTMLAttributes } from "react";
+
 import { imageBorderModifier } from "./utils";
 
 import styles from "./styles.module.css";
 
-type TAvatarProps = {
-  imageSrc: string;
+interface TAvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   hasBorder?: boolean;
-};
+}
 
-const Avatar = ({ imageSrc, hasBorder = true }: TAvatarProps) => (
-  <img className={imageBorderModifier(styles, hasBorder)} src={imageSrc} />
+const Avatar = ({ hasBorder = true, ...props }: TAvatarProps) => (
+  <img className={imageBorderModifier(styles, hasBorder)} {...props} />
 );
 
 export default Avatar;

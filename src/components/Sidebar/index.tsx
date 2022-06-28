@@ -13,7 +13,7 @@ const Sidebar = () => {
       />
 
       <div className={styles.profile}>
-        <Avatar imageSrc="https://avatars.githubusercontent.com/u/58401291?v=4" />
+        <Avatar src="https://avatars.githubusercontent.com/u/58401291?v=4" />
 
         <strong>Luiz Ramos</strong>
         <span>Frontend Engineer</span>

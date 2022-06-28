@@ -18,14 +18,14 @@ const Comment = ({ content, onDeleteComment }: TCommentProps) => {
   }
 
   function handleLikeComment() {
-    setLikeCount(likeCount + 1);
+    setLikeCount((state) => state + 1);
   }
 
   return (
     <div className={styles.comment}>
       <Avatar
         hasBorder={false}
-        imageSrc="https://avatars.githubusercontent.com/u/58401291?v=4"
+        src="https://avatars.githubusercontent.com/u/58401291?v=4"
       />
 
       <div className={styles.commentBox}>

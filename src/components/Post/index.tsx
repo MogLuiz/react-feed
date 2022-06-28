@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
 
 import Avatar from "../Avatar";
 import Comment from "../Comment";
@@ -50,7 +50,7 @@ const Post = ({
     setNewCommentText(event.target.value);
   };
 
-  const handleNewCommentInvalid = (event: ChangeEvent<HTMLTextAreaElement>) =>
+  const handleNewCommentInvalid = (event: InvalidEvent<HTMLTextAreaElement>) =>
     event.target.setCustomValidity("Este é um campo obrigatório!");
 
   const deleteComment = (commentToDelete: string) => {
@@ -64,7 +64,7 @@ const Post = ({
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <Avatar imageSrc={avatarUrl} />
+          <Avatar src={avatarUrl} />
           <div className={styles.authorInfo}>
             <strong>{name}</strong>
             <span>{role}</span>
