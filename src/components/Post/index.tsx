@@ -46,8 +46,12 @@ const Post = ({
   };
 
   const handleNewCommentChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    event.target.setCustomValidity("");
     setNewCommentText(event.target.value);
   };
+
+  const handleNewCommentInvalid = (event: ChangeEvent<HTMLTextAreaElement>) =>
+    event.target.setCustomValidity("Este é um campo obrigatório!");
 
   const deleteComment = (commentToDelete: string) => {
     const commentsWithoutDeletedOne = comments.filter(
@@ -95,6 +99,8 @@ const Post = ({
           onChange={handleNewCommentChange}
           name="comment"
           placeholder="Escreva um comentário..."
+          onInvalid={handleNewCommentInvalid}
+          required
         />
 
         <footer>
