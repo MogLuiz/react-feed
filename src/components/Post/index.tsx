@@ -104,7 +104,9 @@ const Post = ({
         />
 
         <footer>
-          {newCommentText && <button type="submit">Comentar</button>}
+          <button disabled={!newCommentText} type="submit">
+            Comentar
+          </button>
         </footer>
       </form>
 
