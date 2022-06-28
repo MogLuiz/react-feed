@@ -48,6 +48,14 @@ const Post = ({
   const handleNewCommentChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setNewCommentText(event.target.value);
   };
+
+  const deleteComment = (commentToDelete: string) => {
+    const commentsWithoutDeletedOne = comments.filter(
+      (comment) => comment !== commentToDelete
+    );
+    setComments(commentsWithoutDeletedOne);
+  };
+
   return (
     <article className={styles.post}>
       <header>
@@ -96,7 +104,11 @@ const Post = ({
 
       <div className={styles.commentList}>
         {comments.map((comment) => (
-          <Comment key={comment} content={comment} />
+          <Comment
+            key={comment}
+            content={comment}
+            onDeleteComment={deleteComment}
+          />
         ))}
       </div>
     </article>

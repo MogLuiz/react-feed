@@ -5,10 +5,15 @@ import Avatar from "../Avatar";
 import styles from "./styles.module.css";
 
 type TCommentProps = {
-  content: string
-}
+  content: string;
+  onDeleteComment: (comment: string) => void;
+};
 
-const Comment = ({ content }:TCommentProps) => {
+const Comment = ({ content, onDeleteComment }: TCommentProps) => {
+  function handleDeleteComment() {
+    onDeleteComment(content);
+  }
+
   return (
     <div className={styles.comment}>
       <Avatar
@@ -25,7 +30,7 @@ const Comment = ({ content }:TCommentProps) => {
               <time dateTime="2022-05-22">Cerca de 1h atrás</time>
             </div>
 
-            <button title="excluir comentário">
+            <button onClick={handleDeleteComment} title="excluir comentário">
               <Trash size={24} />
             </button>
           </header>
