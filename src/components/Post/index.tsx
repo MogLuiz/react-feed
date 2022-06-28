@@ -69,10 +69,10 @@ const Post = ({
 
       <div className={styles.content}>
         {content.map(({ content, type }: TContentPost) => {
-          if (type === "paragraph") return <p>{content}</p>;
+          if (type === "paragraph") return <p key={content}>{content}</p>;
           if (type === "link")
             return (
-              <p>
+              <p key={content}>
                 <a href="#">{content}</a>
               </p>
             );
@@ -96,7 +96,7 @@ const Post = ({
 
       <div className={styles.commentList}>
         {comments.map((comment) => (
-          <Comment content={comment} />
+          <Comment key={comment} content={comment} />
         ))}
       </div>
     </article>
